@@ -6,4 +6,4 @@ Search for recipes and also displays a random recipe on the homepage with the he
 • Connect to mealdb API and get recipes                                                                  
 • Display recipes in DOM with image and it's name on hover effect for the searched term                  
 • Click on a recipe you liked and see the ingredients and method for it                                  
-• Click on 'Get a random meal' button and fetch & display a random recipe                                
+• Click on 'Get a random recipe' button and fetch & display a random recipe                                
