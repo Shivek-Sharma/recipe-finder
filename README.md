@@ -1,7 +1,7 @@
-# Recipe Finder
-Search for recipes and also displays a random recipe on the homepage with the help of [mealdb](https://www.themealdb.com/) API
+# Tasty Cravings - Recipe Finder
+Find tasty recipes by searching ingredients and also displays a random recipe on the homepage with the help of [mealdb](https://www.themealdb.com/) API.
 
-[Live Demo](https://recipes-searcher.netlify.app/)
+[Live Demo](https://tasty-cravings.netlify.app/)
 
 # Project Specifications
 • Display UI with an option to search for recipes and button to generate a random recipe                 
