@@ -1,7 +1,7 @@
 # Tasty Cravings - Recipe Finder
 Find recipes using the ingredients you have on hand. Just enter an ingredient into this recipe search engine and it will instantly return a list of tasty recipes for you to enjoy.
 
-[Live Demo](https://tasty-cravings.netlify.app/)
+[Live Demo](https://tasty-cravings.netlify.app)
 
 # Project Specifications
 • Display UI with an option to search for recipes using the ingredients and button to dispaly a random recipe.               
