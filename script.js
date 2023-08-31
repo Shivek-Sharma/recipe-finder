@@ -17,7 +17,7 @@ function searchMeal(e) {
         fetch(`https://www.themealdb.com/api/json/v1/1/search.php?s=${term}`)
             .then(response => response.json())
             .then(data => {
-                // console.log(data);
+                //console.log(data)
                 resultHeading.innerHTML = `<p>Search results for '${term}':</p>`;
 
                 if (data.meals === null) {
@@ -48,7 +48,7 @@ function getMealByID(mealID) {
     fetch(`https://www.themealdb.com/api/json/v1/1/lookup.php?i=${mealID}`)
         .then(response => response.json())
         .then(data => {
-            //console.log(data);
+            //console.log(data)
             const meal = data.meals[0];
 
             addMealToDOM(meal);
@@ -57,14 +57,14 @@ function getMealByID(mealID) {
 
 //Fetch random meal from API
 function getRandomMeal() {
-    //clear meals and heading
-    resultHeading.innerHTML = '';
+    //reset meals and heading
+    resultHeading.innerHTML = '<p>Here is a random recipe for you. Enjoy :)</p>';
     mealsEl.innerHTML = '';
 
     fetch('https://www.themealdb.com/api/json/v1/1/random.php')
         .then(response => response.json())
         .then(data => {
-            // console.log(data)
+            //console.log(data)
             const meal = data.meals[0];
 
             addMealToDOM(meal);
@@ -84,6 +84,8 @@ function addMealToDOM(meal) {
         }
     }
 
+    mealsEl.innerHTML = '';
+
     single_mealEl.innerHTML = `
         <div class="single-meal">
             <h2>${meal.strMeal}</h2>
@@ -102,27 +104,26 @@ function addMealToDOM(meal) {
 
                 <h3>Method</h3>
                 <p class="instructions">${meal.strInstructions}</p>
+
+                <div class="youtube">
+                    <a href=${meal.strYoutube} target="_blank">Watch Recipe on YouTube</a>
+                </div>
             </div>
         </div>
     `;
 }
+
 
 //Event Listeners
 submit.addEventListener('submit', searchMeal);
 random.addEventListener('click', getRandomMeal);
 
 mealsEl.addEventListener('click', e => {
-    const mealInfoEl = e.path.find(element => {
-        if (element.classList) {
-            return element.classList.contains('meal-info')
-        }
-        else {
-            return false;
-        }
-    });
-    // console.log(mealInfoEl)
 
-    const mealID = mealInfoEl.getAttribute('data-meal_id');
+    const mealInfoEl = e.target.classList.contains('meal-info') ? e.target : e.target.parentNode;
+    //console.log(mealInfoEl)
+
+    const mealID = +mealInfoEl.getAttribute('data-meal_id');
     getMealByID(mealID);
 });
 

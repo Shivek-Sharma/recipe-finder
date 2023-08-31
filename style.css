@@ -36,6 +36,7 @@ input[type='text'] {
     border-right: 0;
 }
 
+
 input[type='text']:focus,
 .search-btn:focus {
     outline: 0;
@@ -61,7 +62,7 @@ input[type='text']:focus,
 }
 
 .random-btn:hover:after {
-    content: "Get a random meal";
+    content: "Get a random recipe";
 }
 
 .result-heading {
@@ -86,6 +87,7 @@ input[type='text']:focus,
     margin: 20px 20px;
 }
 
+
 .meal img {
     width: 100%;
     height: 100%;
@@ -107,6 +109,7 @@ input[type='text']:focus,
     transition: opacity 0.2s ease-in-out;
     opacity: 0;
 }
+
 
 .meal:hover .meal-info {
     opacity: 1;
@@ -158,6 +161,24 @@ input[type='text']:focus,
 
 .main .instructions {
     text-align: justify;
+}
+
+.youtube {
+    margin: 30px 0;
+}
+
+.youtube a {
+    text-decoration: none;
+    border: 1px solid #dedede;
+    padding: 8px 10px;
+    font-size: 14px;
+    border-radius: 5px;
+    background-color: white;
+    color: black;
+}
+
+.youtube a:hover {
+    font-weight: bold;
 }
 
 @media (max-width: 700px) {
