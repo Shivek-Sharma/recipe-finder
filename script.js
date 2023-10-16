@@ -18,12 +18,12 @@ function searchMeal(e) {
             .then(response => response.json())
             .then(data => {
                 //console.log(data)
-                resultHeading.innerHTML = `<p>Search results for '${term}':</p>`;
 
                 if (data.meals === null) {
                     resultHeading.innerHTML = `<p>There are no search results. Try different keyword!</p>`;
                     mealsEl.innerHTML = '';
                 } else {
+                    resultHeading.innerHTML = `<p>Search results for '${term}':</p>`;
                     mealsEl.innerHTML = data.meals.map(meal => `
                         <div class="meal">
                             <img src="${meal.strMealThumb}" alt="${meal.strMeal}">
@@ -32,14 +32,15 @@ function searchMeal(e) {
                             </div>
                         </div>
                     `)
-                        .join(''); //convert back the array to string
+                        .join(''); // removes , from the string coversion of the array
                 }
             });
 
         //clear search bar after searching a term
         search.value = '';
     } else {
-        alert("Please enter a search term :)");
+        resultHeading.innerHTML = `<p>Please enter a search term</p>`;
+        mealsEl.innerHTML = '';
     }
 }
 
@@ -122,10 +123,13 @@ random.addEventListener('click', getRandomMeal);
 mealsEl.addEventListener('click', e => {
 
     const mealInfoEl = e.target.classList.contains('meal-info') ? e.target : e.target.parentNode;
-    //console.log(mealInfoEl)
+    // console.log(mealInfoEl)
 
     const mealID = +mealInfoEl.getAttribute('data-meal_id');
-    getMealByID(mealID);
+
+    if (mealID) {
+        getMealByID(mealID);
+    }
 });
 
 //shows a random meal on the home
